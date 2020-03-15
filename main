@@ -1,0 +1,34 @@
+def validate_string(input, type):
+    input = input.lower()
+    i = 0
+    output = True
+    while i < len(input):
+        if input[i] == 'a' or  input[i] == 'b' or  input[i] == 'c' or  input[i] == 'd' or  input[i] == 'e' or  input[i] == 'f' or  input[i] == 'g' or  input[i] == 'h' or  input[i] == 'i' or  input[i] == 'j' or  input[i] == 'k' or  input[i] == 'l' or  input[i] == 'm' or  input[i] == 'n' or  input[i] == 'o' or  input[i] == 'p' or  input[i] == 'q' or  input[i] == 'r' or  input[i] == 's' or  input[i] == 't' or  input[i] == 'u' or  input[i] == 'v' or  input[i] == 'w' or  input[i] == 'x' or  input[i] == 'y' or  input[i] == 'z' or  input[i] == '1' or  input[i] == '2' or  input[i] == '3' or  input[i] == '4' or  input[i] == '5' or  input[i] == '6' or  input[i] == '7' or  input[i] == '8' or  input[i] == '9' or  input[i] == '0' or  input[i] == '-':
+            pass
+        else:
+            if type == False:
+                output = False
+            elif input[i] != '_' and input[i] != '.':
+                output = False
+        i += 1
+    return output
+def validate_email(email):
+    email = email.strip()
+    tmp = email.split('@')
+    test1 = tmp[0]
+    tmp = tmp[1]
+    test2 = tmp.split('.')[0]
+    test3 = tmp.split('.')[1]
+    output = True
+    if validate_string(test1, True):
+        if test1[len(test1) - 1] == '-' or test1[len(test1) - 1] == '_' or test1[len(test1) - 1] == '.':
+            output = False
+    else:
+        output = False
+    if validate_string(test2, False) == False:
+        output = False
+    if validate_string(test3, False) == False:
+        output = False
+    if len(test3) < 2:
+        output = False
+    return(output)
